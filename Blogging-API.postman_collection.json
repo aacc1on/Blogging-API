@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "8f693e06-40ed-4800-892f-57befce0d5c5",
+		"name": "Blogging-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45048999"
+	},
+	"item": [
+		{
+			"name": "User register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"john\",\r\n  \"email\": \"john@example.com\",\r\n  \"password\": \"secret123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"john\",\r\n  \"password\": \"secret123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"My First Post\",\r\n  \"content\": \"Hello World\",\r\n  \"categories\": [\"tech\"],\r\n  \"tags\": [\"nodejs\", \"mongodb\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all post",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Category only",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?category=tech",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "tech"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tag only",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?tag=nodejs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "tag",
+							"value": "nodejs"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Both",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts?category=tech&tag=nodejs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "tech"
+						},
+						{
+							"key": "tag",
+							"value": "nodejs"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get post by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/687b5fcc55c8e8ea81fae8fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"687b5fcc55c8e8ea81fae8fe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/687b5fcc55c8e8ea81fae8fe/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"687b5fcc55c8e8ea81fae8fe",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dislike",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/687b5fcc55c8e8ea81fae8fe/dislike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"687b5fcc55c8e8ea81fae8fe",
+						"dislike"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content\": \"Nice post!\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/posts/687b5fcc55c8e8ea81fae8fe/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"687b5fcc55c8e8ea81fae8fe",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all comments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4N2I1ZWUwNTVjOGU4ZWE4MWZhZThmYiIsImlhdCI6MTc1MjkxNTc1NH0.Gu-URWJhAiw70rlo1OvjJfjXjzMuN1uajFuGIwgjhO8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/posts/687b5fcc55c8e8ea81fae8fe/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"posts",
+						"687b5fcc55c8e8ea81fae8fe",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
