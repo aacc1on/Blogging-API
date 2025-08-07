@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: blog-api
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+
+  mongo:
+    image: mongo:7
+    container_name: blog-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
